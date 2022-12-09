@@ -13,7 +13,9 @@ RUN dnf install -y \
     rpm-build \
     rpm-devel \
     rpmdevtools \
-    rpmlint
+    rpmlint &&
+    dnf clean all &&
+    rm -rf /var/cache/dnf
 
 # Install rpm macros
 
@@ -29,4 +31,6 @@ RUN dnf install -y \
     python-srpm-macros \
     python3-rpm-macros \
     systemd-rpm-macros \
-    typelib-srpm-macros
+    typelib-srpm-macros &&
+    dnf clean all &&
+    rm -rf /var/cache/dnf
