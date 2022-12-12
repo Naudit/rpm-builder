@@ -4,6 +4,7 @@ FROM fedora:37
 RUN dnf install -y \
     bash \
     coreutils \
+    curl \
     diffutils \
     gcc \
     git \
@@ -14,6 +15,7 @@ RUN dnf install -y \
     rpm-devel \
     rpmdevtools \
     rpmlint \
+    wget \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
