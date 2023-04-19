@@ -49,6 +49,6 @@ jobs:
         uses: docker/build-push-action@master
         with:
           context: .
-          file: ./Dockerfile.fedora37
+          file: Dockerfile.fedora37
           push: true
           tags: rpm-builder:latest, rpm-builder:fedora37
