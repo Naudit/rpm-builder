@@ -48,6 +48,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile.${{ dockername }}
+          file: Dockerfile.${{ matrix.dockername }}
           push: true
-          tags: naudit/rpm-builder:${{ dockername }} ${{ extratags }}
+          tags: naudit/rpm-builder:${{ matrix.dockername }} ${{ matrix.extratags }}
