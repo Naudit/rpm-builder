@@ -22,6 +22,12 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        osname: [fedora37, fedora38]
+        include:
+          - osname: "fedora38"
+            extratags: ", naudit/rpm-builder:latest"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,6 +48,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile.fedora37
+          file: Dockerfile.${{osname}}
           push: true
-          tags: rpm-builder:latest, rpm-builder:fedora37
+          tags: naudit/rpm-builder:${{osname}} ${{extratags}}
