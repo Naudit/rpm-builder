@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        osname: [fedora37, fedora38]
+        dockername: [fedora37, fedora38]
         include:
-          - osname: "fedora38"
+          - dockername: "fedora38"
             extratags: ", naudit/rpm-builder:latest"
     steps:
       - name: Checkout
@@ -48,6 +48,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile.${{osname}}
+          file: Dockerfile.${{ dockername }}
           push: true
-          tags: naudit/rpm-builder:${{osname}} ${{extratags}}
+          tags: naudit/rpm-builder:${{ dockername }} ${{ extratags }}
