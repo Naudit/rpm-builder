@@ -38,6 +38,8 @@ RUN dnf install -y \
 
 # Install rpm macros for python development
 RUN dnf install -y \
+    dnf \
+    dnf-plugins-core \
     dnf5-plugins \
     python3-devel \
     python3-rpm-macros \
