@@ -38,11 +38,15 @@ RUN dnf install -y \
 
 # Install rpm macros for python development
 RUN dnf install -y \
-    dnf-plugins-core \
+    dnf5-plugins \
     python3-devel \
     python3-rpm-macros \
     python3-setuptools_scm+toml \
     python3-wheel \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+RUN dnf update -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
