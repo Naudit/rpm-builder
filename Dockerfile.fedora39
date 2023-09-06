@@ -37,12 +37,12 @@ RUN dnf install -y \
     && rm -rf /var/cache/dnf
 
 # Upgrade, as there are some buggy packages
-RUN dnf upgrade -y \
-    && dnf clean all \
-    && rm -rf /var/cache/dnf
+RUN dnf5 upgrade -y \
+    && dnf5 clean all \
+    && rm -rf /var/cache/dnf*
 
 # Install rpm macros for python development
-RUN dnf install -y \
+RUN dnf5 install -y \
     dnf \
     dnf-plugins-core \
     dnf5-plugins \
