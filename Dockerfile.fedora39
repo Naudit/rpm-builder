@@ -49,6 +49,7 @@ RUN dnf5 install -y \
     python3-devel \
     python3-rpm-macros \
     python3-setuptools_scm+toml \
+    python3-poetry \
     python3-wheel \
     && dnf clean all \
     && rm -rf /var/cache/dnf
