@@ -4,7 +4,7 @@ FROM redhat/ubi9
 RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 
 # Install base packages
-RUN dnf install -y \
+RUN dnf install -y --allowerasing \
     bash \
     coreutils \
     curl \
@@ -15,27 +15,41 @@ RUN dnf install -y \
     patch \
     python \
     rpm-build \
-    rpm-devel \
-    rpmdevtools \
     rpmlint \
     wget \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
 # Install rpm macros
-
 RUN dnf install -y \
     cmake-rpm-macros.noarch \
-    fedora-rpm-macros \
-    go-rpm-macros \
-    kernel-rpm-macros \
-    lua-rpm-macros \
-    lua-rpm-macros \
+    epel-rpm-macros \
+    go-rpm-macros-epel \
+    kernel-srpm-macros \
+    pyproject-rpm-macros \
     pyproject-rpm-macros \
     python-rpm-macros \
     python-srpm-macros \
     python3-rpm-macros \
     systemd-rpm-macros \
-    typelib-srpm-macros \
     && dnf clean all \
     && rm -rf /var/cache/dnf
+
+# Install rpm macros for python development
+RUN dnf install -y \
+    dnf \
+    dnf-plugins-core \
+    python3-devel \
+    python3-rpm-macros \
+    python3-setuptools_scm+toml \
+    python3-poetry-core \
+    python3-wheel \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+# MISSED DUE TO MISSING PACKAGES:
+# rpm-devel \
+# rpmdevtools \
+# typelib-srpm-macros \
+# fedora-rpm-macros \
+# lua-rpm-macros \
