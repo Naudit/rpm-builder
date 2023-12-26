@@ -1,7 +1,7 @@
 FROM fedora:39
 
 # Install base groups
-RUN dnf groupinstall -y 'Development Tools' \
+RUN dnf groupinstall -y 'development-tools' 'c-development' 'rpm-development-tools' \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
