@@ -1,27 +1,40 @@
 FROM fedora:40
 
+# Install base groups
+RUN dnf groupinstall -y \
+    development-tools \
+    c-development \
+    rpm-development-tools \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
 # Install base packages
 RUN dnf install -y \
     bash \
+    cmake \
+    cmake-fedora \
     coreutils \
     curl \
     diffutils \
     gcc \
+    gcc-c++ \
     git \
     make \
+    ninja-build \
     patch \
     python \
     rpm-build \
     rpm-devel \
     rpmdevtools \
     rpmlint \
+    rust-cc-devel \
     wget \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
 # Install rpm macros
 RUN dnf install -y \
-    cmake-rpm-macros.noarch \
+    cmake-rpm-macros \
     fedora-rpm-macros \
     go-rpm-macros \
     kernel-rpm-macros \
