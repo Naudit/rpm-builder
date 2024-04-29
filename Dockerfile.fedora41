@@ -1,0 +1,63 @@
+FROM fedora:40
+
+# Install base groups
+RUN dnf groupinstall -y \
+    development-tools \
+    c-development \
+    rpm-development-tools \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+# Install base packages
+RUN dnf install -y \
+    bash \
+    cmake \
+    cmake-fedora \
+    coreutils \
+    curl \
+    diffutils \
+    gcc \
+    gcc-c++ \
+    git \
+    make \
+    ninja-build \
+    patch \
+    python \
+    rpm-build \
+    rpm-devel \
+    rpmdevtools \
+    rpmlint \
+    rust-cc-devel \
+    wget \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+# Install rpm macros
+RUN dnf install -y \
+    cmake-rpm-macros \
+    fedora-rpm-macros \
+    go-rpm-macros \
+    kernel-rpm-macros \
+    lua-rpm-macros \
+    lua-rpm-macros \
+    pyproject-rpm-macros \
+    python-rpm-macros \
+    python-srpm-macros \
+    python3-rpm-macros \
+    systemd-rpm-macros \
+    typelib-srpm-macros \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+# Install rpm macros for python development
+RUN dnf install -y \
+    dnf \
+    dnf-plugins-core \
+    python3-devel \
+    python3-rpm-macros \
+    python3-setuptools_scm+toml \
+    python3-poetry \
+    python3-wheel \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
