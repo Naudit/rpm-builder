@@ -1,7 +1,7 @@
 FROM fedora:42
 
 # Install base groups
-RUN dnf groupinstall -y \
+RUN dnf group install -y \
     development-tools \
     c-development \
     rpm-development-tools \
