@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockername: [fedora38, fedora39, fedora40, fedora41, ubi9]
+        dockername: [fedora39, fedora40, fedora41, fedora42, ubi9]
         include:
           - dockername: "fedora40"
             extratags: ", naudit/rpm-builder:latest"
