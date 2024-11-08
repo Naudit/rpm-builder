@@ -26,7 +26,7 @@ jobs:
       matrix:
         dockername: [fedora39, fedora40, fedora41, fedora42, ubi9]
         include:
-          - dockername: "fedora40"
+          - dockername: "fedora41"
             extratags: ", naudit/rpm-builder:latest"
     steps:
       - name: Checkout
