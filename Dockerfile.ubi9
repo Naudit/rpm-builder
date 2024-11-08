@@ -26,7 +26,7 @@ RUN dnf install -y \
     epel-rpm-macros \
     go-rpm-macros-epel \
     kernel-srpm-macros \
-    lua-rpm-macros \
+    lua-srpm-macros \
     pyproject-rpm-macros \
     pyproject-rpm-macros \
     python-rpm-macros \
