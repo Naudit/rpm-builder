@@ -24,10 +24,8 @@ RUN dnf install -y --allowerasing \
 RUN dnf install -y \
     cmake-rpm-macros.noarch \
     epel-rpm-macros \
-    go-rpm-macros-epel \
+    go-rpm-macros \
     kernel-srpm-macros \
-    lua-srpm-macros \
-    pyproject-rpm-macros \
     pyproject-rpm-macros \
     python-rpm-macros \
     python-srpm-macros \
@@ -40,15 +38,17 @@ RUN dnf install -y \
 RUN dnf install -y \
     dnf \
     dnf-plugins-core \
+    pyproject-srpm-macros \
     python3-devel \
-    python3-rpm-macros \
+    python3-setuptools \
     python3-setuptools_scm+toml \
-    python3-poetry-core \
     python3-wheel \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
 # MISSED DUE TO MISSING PACKAGES:
+# python3-poetry-core 
+# lua-srpm-macros 
 # rpm-devel \
 # rpmdevtools \
 # typelib-srpm-macros \
