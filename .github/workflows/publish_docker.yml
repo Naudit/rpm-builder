@@ -11,7 +11,7 @@ name: Publish Docker image
 
 on:
   release:
-    types: [published]
+    types: [ published ]
   push:
     tags:
       - "v*"
@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockername: [fedora40, fedora41, fedora42, fedora43, ubi10]
+        dockername: [ fedora40, fedora41, fedora42, fedora43, fedora44, ubi10 ]
         include:
-          - dockername: "fedora43"
+          - dockername: "fedora44"
             extratags: ", naudit/rpm-builder:latest"
     steps:
       - name: Checkout
